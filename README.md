@@ -6,5 +6,6 @@ Info parts of nodes are integers.
 Finding, inserting and deleting both nodes and edges is working.
 You can print nodes with their neighbours or adjacency matrix.
 
-BFS, DFS will soon be implemented.
+BFS and DFS traversals should be working.
+
 Kruskal, Prim, Boruvka algorithm's will soon be implemented.
