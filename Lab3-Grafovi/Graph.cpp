@@ -1,5 +1,6 @@
 #include "Graph.hpp"
 #include "Stack.h"
+#include "Queue.hpp";
 
 Node* Graph::findNode(int value)
 {
@@ -157,6 +158,76 @@ void Graph::deleteEdge(int srcValue, int dstValue)
 			delete toDel;
 		}
 	}
+}
+
+void Graph::bfs()
+{
+	if (!start)
+	{
+		cout << "Graph is empty!" << endl;
+		return;
+	}
+	cout << "BFS: ";
+	Node* node = start;
+	while (node)
+	{
+		node->status = Status::Unvisited;
+		node = node->nextNode;
+	}
+	Queue queue(numOfNodes);
+	queue.enqueue(start);
+	start->status = Status::Visited;
+	while (!queue.isEmpty())
+	{
+		Node* ptr = queue.dequeue();
+		cout << ptr->info << " ";
+		Edge* edge = ptr->adj;
+		while (edge)
+		{
+			if (edge->dest->status == Status::Unvisited)
+			{
+				queue.enqueue(edge->dest);
+				edge->dest->status = Status::Visited;
+			}
+			edge = edge->next;
+		}
+	}
+	cout << endl;
+}
+
+void Graph::dfs()
+{
+	if (!start)
+	{
+		cout << "Graph is empty!" << endl;
+		return;
+	}
+	cout << "DFS: ";
+	Node* node = start;
+	while (node)
+	{
+		node->status = Status::Unvisited;
+		node = node->nextNode;
+	}
+	Stack stack(numOfNodes);
+	stack.push(start);
+	start->status = Status::Visited;
+	while (!stack.isEmpty())
+	{
+		Node* ptr = stack.pop();
+		cout << ptr->info << " ";
+		Edge* edge = ptr->adj;
+		while (edge)
+		{
+			if (edge->dest->status == Status::Unvisited)
+			{
+				stack.push(edge->dest);
+				edge->dest->status = Status::Visited;
+			}
+			edge = edge->next;
+		}
+	}
+	cout << endl;
 }
 
 void Graph::printGraph()

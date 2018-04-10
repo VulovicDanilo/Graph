@@ -30,8 +30,8 @@ public:
 		array = nullptr;
 	}
 	inline int getSize() { return size; }
-	inline bool isEmpty() { size == 0; }
-	inline bool isFull() { size = capacity; }
+	inline bool isEmpty() { return size == 0; }
+	inline bool isFull() { return size == capacity; }
 	void enqueue(Node* node)
 	{
 		if (!isFull())

@@ -26,6 +26,8 @@ public:
 	bool containsEdge(int src, int dst);
 	void insertNode(int info);
 	void insertEdge(int srcNode, int dstNode, int weight);
+	void bfs();
+	void dfs();
 	void printGraph();
 	void printAdjMatrix();
 
