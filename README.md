@@ -1,5 +1,5 @@
 # Graph
-Pointer based implementation of graph in C++ wihtout using STL.
+Pointer based implementation of graph in C++ without using STL.
 
 Info parts of nodes are integers.
 
